@@ -15,7 +15,7 @@ let active = 0;
 let cardsContainer = document.getElementById("cardsContainer");
 let result = document.getElementById("result");
 let btnStart = document.getElementById("start");
-
+let cardsRandom
 let nFlip = false;
 
 const getApiCards = async () => {
@@ -35,7 +35,7 @@ const renderCards = (response) => {
   }
   cards2 = [...cardsEasy, ...cardsEasy];
 
-  let cardsRandom = cards2.sort(() => Math.random() - 0.5);
+cardsRandom = cards2.sort(() => Math.random() - 0.5);
 
   let i = 1;
   cardsRandom.forEach((element) => {
@@ -114,6 +114,9 @@ const flipCard = (idCardContainer, idCard) => {
         cardFlip2 = {};
         nFlip = false;
         active = 1;
+        if(success == cardsRandom.length/2 ){
+          alert("ganaste")
+        }
       }
     }
     renderData();
